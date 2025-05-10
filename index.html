@@ -1,174 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Aula de Git</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-      header {
-        background-color: #2c3e50;
-        color: white;
-        text-align: center;
-        padding: 2em;
-      }
-      header h1 {
-        margin: 0;
-      }
-      nav {
-        background-color: #34495e;
-        padding: 1em;
-        display: flex;
-        justify-content: center;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 1em;
-      }
-      nav a:hover {
-        text-decoration: underline;
-      }
-      main {
-        max-width: 800px;
-        margin: 2em auto;
-        padding: 0 1em;
-      }
-      article {
-        background-color: white;
-        padding: 1.5em;
-        margin-bottom: 1.5em;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      article h2 {
-        margin-top: 0;
-      }
-      code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 3px;
-      }
-      pre {
-        background-color: #f4f4f4;
-        padding: 1em;
-        border-radius: 5px;
-        overflow-x: auto;
-      }
-      footer {
-        background-color: #2c3e50;
-        color: white;
-        text-align: center;
-        padding: 1em;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2em;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+            margin-bottom: 4em; /* Adiciona espaço para o rodapé */
+        }
+        article {
+            background-color: white;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        article h2 {
+            margin-top: 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <h1>Blog da Aula de Git</h1>
-      <p>Aprendendo controle de versão com Git</p>
+        <h1>Blog da Aula de Git</h1>
+        <p>Aprendendo controle de versão com Git</p>
     </header>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
     </nav>
     <main>
-      <article>
-        <h2>Como Enviar Atualizações Locais para a Branch Main do GitHub</h2>
-        <p>Publicado em: 12 de Maio de 2025</p>
-        <p>
-          Este guia passo a passo mostra como enviar suas alterações locais para
-          a branch <code>main</code> de um repositório no GitHub. Certifique-se
-          de que você já clonou o repositório e configurou o Git localmente.
-        </p>
-        <h3>Passo a Passo</h3>
-        <ol>
-          <li>
-            <strong>Verifique o status do repositório:</strong>
-            <p>Confira quais arquivos foram modificados ou adicionados.</p>
-            <pre><code>git status</code></pre>
-          </li>
-          <li>
-            <strong>Adicione as alterações:</strong>
-            <p>
-              Adicione os arquivos modificados ao staging para prepará-los para
-              o commit.
-            </p>
-            <pre><code>git add .</code></pre>
-            <p>
-              (Use <code>git add nome-do-arquivo</code> para adicionar arquivos
-              específicos.)
-            </p>
-          </li>
-          <li>
-            <strong>Crie um commit:</strong>
-            <p>Registre suas alterações com uma mensagem descritiva.</p>
-            <pre><code>git commit -m "Descrição das alterações"</code></pre>
-          </li>
-          <li>
-            <strong>Verifique a branch atual:</strong>
-            <p>Certifique-se de que você está na branch <code>main</code>.</p>
-            <pre><code>git branch</code></pre>
-            <p>Se necessário, mude para a branch <code>main</code> com:</p>
-            <pre><code>git checkout main</code></pre>
-          </li>
-          <li>
-            <strong>Puxe as atualizações remotas:</strong>
-            <p>
-              Antes de enviar, synchronize seu repositório local com o remoto
-              para evitar conflitos.
-            </p>
-            <pre><code>git pull origin main</code></pre>
-          </li>
-          <li>
-            <strong>Envie as alterações para o GitHub:</strong>
-            <p>
-              Envie seus commits locais para a branch <code>main</code> no
-              repositório remoto.
-            </p>
-            <pre><code>git push origin main</code></pre>
-          </li>
-        </ol>
-        <p>
-          <strong>Nota:</strong> Se o repositório remoto estiver protegido, você
-          pode precisar criar um pull request em vez de enviar diretamente para
-          a <code>main</code>. Nesse caso, considere trabalhar em uma branch
-          separada e abrir um PR no GitHub.
-        </p>
-      </article>
-      <article>
-        <h2>Primeiros Passos com Git</h2>
-        <p>Publicado em: 10 de Maio de 2025</p>
-        <p>
-          Nesta aula, aprendemos os conceitos básicos do Git, como inicializar
-          um repositório com <code>git init</code>, adicionar arquivos com
-          <code>git add</code> e criar commits com <code>git commit</code>. É o
-          início do controle de versão!
-        </p>
-      </article>
-      <article>
-        <h2>Trabalhando com Branches</h2>
-        <p>Publicado em: 8 de Maio de 2025</p>
-        <p>
-          Exploramos como criar e gerenciar branches no Git usando
-          <code>git branch</code> e <code>git checkout</code>. Branches são
-          essenciais para trabalhar em diferentes funcionalidades sem afetar o
-          código principal.
-        </p>
-      </article>
+        <article>
+            <h2>Como Enviar Atualizações para uma Branch e Fazer Merge no GitHub</h2>
+            <p>Publicado em: 15 de Maio de 2025</p>
+            <p>Este guia mostra como criar uma nova branch, enviar alterações locais para ela no GitHub e, em seguida, mesclar (merge) essas alterações na branch <code>main</code> usando um pull request.</p>
+            <h3>Passo a Passo</h3>
+            <ol>
+                <li>
+                    <strong>Crie uma nova branch:</strong>
+                    <p>Crie uma branch chamada <code>feature</code> (ou outro nome de sua escolha).</p>
+                    <pre><code>git checkout -b feature</code></pre>
+                </li>
+                <li>
+                    <strong>Verifique o status do repositório:</strong>
+                    <p>Confira quais arquivos foram modificados ou adicionados.</p>
+                    <pre><code>git status</code></pre>
+                </li>
+                <li>
+                    <strong>Adicione as alterações:</strong>
+                    <p>Adicione os arquivos modificados ao staging.</p>
+                    <pre><code>git add .</code></pre>
+                    <p>(Use <code>git add nome-do-arquivo</code> para arquivos específicos.)</p>
+                </li>
+                <li>
+                    <strong>Crie um commit:</strong>
+                    <p>Registre suas alterações com uma mensagem descritiva.</p>
+                    <pre><code>git commit -m "Adiciona nova funcionalidade"</code></pre>
+                </li>
+                <li>
+                    <strong>Envie a branch para o GitHub:</strong>
+                    <p>Envie a branch <code>feature</code> para o repositório remoto.</p>
+                    <pre><code>git push origin feature</code></pre>
+                </li>
+                <li>
+                    <strong>Crie um Pull Request (PR):</strong>
+                    <p>Acesse o repositório no GitHub, vá para a aba "Pull Requests" e clique em "New Pull Request". Selecione <code>feature</code> como branch de origem e <code>main</code> como destino. Adicione uma descrição e envie o PR.</p>
+                </li>
+                <li>
+                    <strong>Revise e faça o merge:</strong>
+                    <p>Se necessário, peça a revisão de colegas. Após aprovação, clique em "Merge Pull Request" no GitHub e, em seguida, em "Confirm Merge". Opcionalmente, delete a branch <code>feature</code> no GitHub.</p>
+                </li>
+                <li>
+                    <strong>Atualize o repositório local:</strong>
+                    <p>Volte para a branch <code>main</code> localmente e puxe as alterações mescladas.</p>
+                    <pre><code>git checkout main</code></pre>
+                    <pre><code>git pull origin main</code></pre>
+                </li>
+                <li>
+                    <strong>(Opcional) Delete a branch local:</strong>
+                    <p>Se a branch <code>feature</code> não for mais necessária, delete-a localmente.</p>
+                    <pre><code>git branch -d feature</code></pre>
+                </li>
+            </ol>
+            <p><strong>Nota:</strong> Se houver conflitos durante o merge, o GitHub indicará. Você pode resolvê-los no GitHub ou localmente com <code>git merge</code> após puxar a branch <code>main</code>.</p>
+        </article>
+        <article>
+            <h2>Como Enviar Atualizações Locais para a Branch Main do GitHub</h2>
+            <p>Publicado em: 12 de Maio de 2025</p>
+            <p>Este guia passo a passo mostra como enviar suas alterações locais para a branch <code>main</code> de um repositório no GitHub. Certifique-se de que você já clonou o repositório e configurou o Git localmente.</p>
+            <h3>Passo a Passo</h3>
+            <ol>
+                <li><strong>Verifique o status do repositório:</strong><pre><code>git status</code></pre></li>
+                <li><strong>Adicione as alterações:</strong><pre><code>git add .</code></pre></li>
+                <li><strong>Crie um commit:</strong><pre><code>git commit -m "Descrição das alterações"</code></pre></li>
+                <li><strong>Verifique a branch atual:</strong><pre><code>git branch</code></pre><p>Se necessário, mude para <code>main</code>:<pre><code>git checkout main</code></pre></p></li>
+                <li><strong>Puxe as atualizações remotas:</strong><pre><code>git pull origin main</code></pre></li>
+                <li><strong>Envie as alterações para o GitHub:</strong><pre><code>git push origin main</code></pre></li>
+            </ol>
+            <p><strong>Nota:</strong> Se o repositório remoto estiver protegido, você pode precisar criar um pull request.</p>
+        </article>
+        <article>
+            <h2>Primeiros Passos com Git</h2>
+            <p>Publicado em: 10 de Maio de 2025</p>
+            <p>Nesta aula, aprendemos os conceitos básicos do Git, como inicializar um repositório com <code>git init</code>, adicionar arquivos com <code>git add</code> e criar commits com <code>git commit</code>. É o início do controle de versão!</p>
+        </article>
+        <article>
+            <h2>Trabalhando com Branches</h2>
+            <p>Publicado em: 8 de Maio de 2025</p>
+            <p>Exploramos como criar e gerenciar branches no Git usando <code>git branch</code> e <code>git checkout</code>. Branches são essenciais para trabalhar em diferentes funcionalidades sem afetar o código principal.</p>
+        </article>
     </main>
     <footer>
-      <p>© 2025 - Aula de Git. Todos os direitos reservados.</p>
+        <p>© 2025 - Aula de Git. Todos os direitos reservados.</p>
     </footer>
-  </body>
+</body>
 </html>
