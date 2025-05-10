@@ -11,12 +11,15 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden; /* Evita barra de rolagem horizontal */
         }
         header {
             background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 2em;
+            width: 100%;
+            box-sizing: border-box;
         }
         header h1 {
             margin: 0;
@@ -26,6 +29,8 @@
             padding: 1em;
             display: flex;
             justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
         }
         nav a {
             color: white;
@@ -37,9 +42,11 @@
         }
         main {
             max-width: 800px;
+            width: 100%;
             margin: 2em auto;
             padding: 0 1em;
-            margin-bottom: 4em; /* Adiciona espaço para o rodapé */
+            margin-bottom: 4em;
+            box-sizing: border-box;
         }
         article {
             background-color: white;
@@ -47,6 +54,8 @@
             margin-bottom: 1.5em;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
         article h2 {
             margin-top: 0;
@@ -55,12 +64,17 @@
             background-color: #f4f4f4;
             padding: 2px 4px;
             border-radius: 3px;
+            word-wrap: break-word;
         }
         pre {
             background-color: #f4f4f4;
             padding: 1em;
             border-radius: 5px;
-            overflow-x: auto;
+            overflow-x: auto; /* Rolagem apenas dentro do bloco */
+            white-space: pre-wrap; /* Quebra de linha para texto longo */
+            word-wrap: break-word;
+            width: 100%;
+            box-sizing: border-box;
         }
         footer {
             background-color: #2c3e50;
@@ -68,6 +82,7 @@
             text-align: center;
             padding: 1em;
             width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -83,63 +98,91 @@
     </nav>
     <main>
         <article>
+            <h2>Base de Conhecimento: Comandos Git</h2>
+            <p>Publicado em: 18 de Maio de 2025</p>
+            <p>Esta é uma referência completa dos principais comandos Git para gerenciar repositórios, branches, commits, tags e mais. Use esta base de conhecimento para revisar os comandos essenciais.</p>
+            <h3>Configuração</h3>
+            <ul>
+                <li><strong>Definir nome do usuário:</strong><p>Configura o nome do autor dos commits.</p><pre><code>git config --global user.name "Fulano de Tal"</code></pre></li>
+                <li><strong>Definir e-mail do usuário:</strong><p>Configura o e-mail do autor dos commits.</p><pre><code>git config --global user.email fulanodetal@exemplo.br</code></pre></li>
+                <li><strong>Listar configurações:</strong><p>Exibe todas as configurações do Git.</p><pre><code>git config --list</code></pre></li>
+                <li><strong>Defin            <li><strong>Definir VSCode como editor padrão:</strong><p>Permite escrever mensagens de commit no VSCode.</p><pre><code>git config --global core.editor "code --wait"</code></pre></li>
+                <li><strong>Resetar configuração do editor:</strong><p>Remove a configuração do editor padrão.</p><pre><code>git config --global --unset core.editor</code></pre></li>
+            </ul>
+            <h3>Repositório</h3>
+            <ul>
+                <li><strong>Criar repositório local:</strong><p>Inicializa um novo repositório Git.</p><pre><code>git init</code></pre></li>
+                <li><strong>Vincular repositório remoto:</strong><p>Conecta o repositório local a um remoto.</p><pre><code>git remote add origin &lt;url_do_repositório_remoto&gt;</code></pre></li>
+                <li><strong>Atualizar branch local com remoto:</strong><p>Sincroniza a branch local com a remota.</p><pre><code>git pull origin &lt;nome_branch&gt;</code></pre></li>
+            </ul>
+            <h3>Branches</h3>
+            <ul>
+                <li><strong>Criar e entrar em uma nova branch:</strong><p>Cria uma branch e alterna para ela.</p><pre><code>git checkout -b &lt;nome_branch&gt;</code></pre></li>
+                <li><strong>Renomear branch:</strong><p>Altera o nome da branch atual.</p><pre><code>git branch -m &lt;novo_nome_branch&gt;</code></pre></li>
+                <li><strong>Excluir branch:</strong><p>Remove uma branch local.</p><pre><code>git branch -d &lt;nome_branch&gt;</code></pre></li>
+            </ul>
+            <h3>Commits</h3>
+            <ul>
+                <li><strong>Adicionar arquivos ao staging:</strong><p>Prepara arquivos para o commit (use <code>.</code> para todos).</p><pre><code>git add &lt;nome_arquivo&gt;</code></pre></li>
+                <li><strong>Comentar alterações:</strong><p>Registra alterações no repositório com uma mensagem.</p><pre><code>git commit -m "Sua mensagem de commit aqui"</code></pre></li>
+                <li><strong>Editar mensagem do commit:</strong><p>Permite alterar a mensagem do último commit antes do push.</p><pre><code>git commit --amend</code></pre></li>
+                <li><strong>Enviar alterações para branch remota:</strong><p>Envia commits locais para o repositório remoto.</p><pre><code>git push origin &lt;nome_branch&gt;</code></pre></li>
+                <li><strong>Anular commit (manter arquivos no staging):</strong><p>Desfaz o último commit, mantendo alterações no staging.</p><pre><code>git reset --soft HEAD~1</code></pre></li>
+                <li><strong>Anular commit (voltar ao working directory):</strong><p>Desfaz o commit e remove do staging.</p><pre><code>git reset --mixed HEAD~1</code></pre></li>
+                <li><strong>Anular commit e apagar alterações:</strong><p>Desfaz o commit e descarta todas as alterações.</p><pre><code>git reset --hard HEAD~1</code></pre></li>
+                <li><strong>Reverter commit:</strong><p>Cria um novo commit que desfaz o anterior.</p><pre><code>git revert HEAD~1</code></pre></li>
+            </ul>
+            <h3>Stash</h3>
+            <ul>
+                <li><strong>Salvar alterações no stash:</strong><p>Guarda alterações não commitadas para usar em outra branch.</p><pre><code>git stash save "mensagem"</code></pre></li>
+                <li><strong>Listar stashes:</strong><p>Exibe todas as alterações salvas no stash.</p><pre><code>git stash list</code></pre></li>
+                <li><strong>Recuperar stash:</strong><p>Restaura as alterações do stash na posição 0.</p><pre><code>git stash pop 0</code></pre></li>
+                <li><strong>Limpar stash:</strong><p>Remove todas as alterações salvas no stash.</p><pre><code>git stash clear</code></pre></li>
+            </ul>
+            <h3>Histórico</h3>
+            <ul>
+                <li><strong>Ver histórico de commits:</strong><p>Exibe o log completo de commits.</p><pre><code>git log</code></pre></li>
+                <li><strong>Histórico de uma pasta:</strong><p>Mostra o log de alterações em uma pasta específica.</p><pre><code>git log &lt;nome_pasta&gt;</code></pre></li>
+                <li><strong>Histórico de um arquivo:</strong><p>Mostra o log de alterações de um arquivo específico.</p><pre><code>git log &lt;nome_arquivo&gt;</code></pre></li>
+                <li><strong>Histórico resumido:</strong><p>Exibe o log de forma compacta.</p><pre><code>git log --oneline</code></pre></li>
+                <li><strong>Histórico com ramificação:</strong><p>Mostra o log com gráfico de branches.</p><pre><code>git log --graph</code></pre></li>
+                <li><strong>Histórico gráfico (interface):</strong><p>Abre uma interface gráfica para visualizar o log.</p><pre><code>gitk</code></pre></li>
+            </ul>
+            <h3>Tags</h3>
+            <ul>
+                <li><strong>Listar tags:</strong><p>Exibe todas as tags do repositório.</p><pre><code>git tag</code></pre></li>
+                <li><strong>Listar tags com filtro:</strong><p>Filtra tags com base em um padrão.</p><pre><code>git tag -l "v1.8.5*"</code></pre></li>
+                <li><strong>Visualizar conteúdo de uma tag:</strong><p>Mostra detalhes de uma tag específica.</p><pre><code>git show v1.4</code></pre></li>
+                <li><strong>Criar tag anotada:</strong><p>Cria uma tag com mensagem e metadados.</p><pre><code>git tag -a v1.4 -m "my version 1.4"</code></pre></li>
+                <li><strong>Criar tag leve:</strong><p>Cria uma tag simples, sem metadados.</p><pre><code>git tag v1.4</code></pre></li valorant
+                <li><strong>Criar tag para commit anterior:</strong><p>Associa uma tag a um commit específico (use o hash do commit).</p><pre><code>git tag -a v1.2 9fceb02</code></pre><p>Para encontrar o hash, use:<pre><code>git log --pretty=oneline</code></pre></p></li>
+                <li><strong>Enviar tag para o remoto:</strong><p>Envia uma tag específica para o repositório remoto.</p><pre><code>git push origin v1.4</code></pre></li>
+                <li><strong>Enviar todas as tags:</strong><p>Envia todas as tags pendentes para o remoto.</p><pre><code>git push origin --tags</code></pre></li>
+                <li><strong>Excluir tag:</strong><p>Remove uma tag local (use o padrão para múltiplas tags).</p><pre><code>git tag -d $(git tag -l "tag_prefix")</code></pre></li>
+            </ul>
+        </article>
+        <article>
             <h2>Como Enviar Atualizações para uma Branch e Fazer Merge no GitHub</h2>
             <p>Publicado em: 15 de Maio de 2025</p>
             <p>Este guia mostra como criar uma nova branch, enviar alterações locais para ela no GitHub e, em seguida, mesclar (merge) essas alterações na branch <code>main</code> usando um pull request.</p>
             <h3>Passo a Passo</h3>
             <ol>
-                <li>
-                    <strong>Crie uma nova branch:</strong>
-                    <p>Crie uma branch chamada <code>feature</code> (ou outro nome de sua escolha).</p>
-                    <pre><code>git checkout -b feature</code></pre>
-                </li>
-                <li>
-                    <strong>Verifique o status do repositório:</strong>
-                    <p>Confira quais arquivos foram modificados ou adicionados.</p>
-                    <pre><code>git status</code></pre>
-                </li>
-                <li>
-                    <strong>Adicione as alterações:</strong>
-                    <p>Adicione os arquivos modificados ao staging.</p>
-                    <pre><code>git add .</code></pre>
-                    <p>(Use <code>git add nome-do-arquivo</code> para arquivos específicos.)</p>
-                </li>
-                <li>
-                    <strong>Crie um commit:</strong>
-                    <p>Registre suas alterações com uma mensagem descritiva.</p>
-                    <pre><code>git commit -m "Adiciona nova funcionalidade"</code></pre>
-                </li>
-                <li>
-                    <strong>Envie a branch para o GitHub:</strong>
-                    <p>Envie a branch <code>feature</code> para o repositório remoto.</p>
-                    <pre><code>git push origin feature</code></pre>
-                </li>
-                <li>
-                    <strong>Crie um Pull Request (PR):</strong>
-                    <p>Acesse o repositório no GitHub, vá para a aba "Pull Requests" e clique em "New Pull Request". Selecione <code>feature</code> como branch de origem e <code>main</code> como destino. Adicione uma descrição e envie o PR.</p>
-                </li>
-                <li>
-                    <strong>Revise e faça o merge:</strong>
-                    <p>Se necessário, peça a revisão de colegas. Após aprovação, clique em "Merge Pull Request" no GitHub e, em seguida, em "Confirm Merge". Opcionalmente, delete a branch <code>feature</code> no GitHub.</p>
-                </li>
-                <li>
-                    <strong>Atualize o repositório local:</strong>
-                    <p>Volte para a branch <code>main</code> localmente e puxe as alterações mescladas.</p>
-                    <pre><code>git checkout main</code></pre>
-                    <pre><code>git pull origin main</code></pre>
-                </li>
-                <li>
-                    <strong>(Opcional) Delete a branch local:</strong>
-                    <p>Se a branch <code>feature</code> não for mais necessária, delete-a localmente.</p>
-                    <pre><code>git branch -d feature</code></pre>
-                </li>
+                <li><strong>Crie uma nova branch:</strong><pre><code>git checkout -b feature</code></pre></li>
+                <li><strong>Verifique o status do repositório:</strong><pre><code>git status</code></pre></li>
+                <li><strong>Adicione as alterações:</strong><pre><code>git add .</code></pre></li>
+                <li><strong>Crie um commit:</strong><pre><code>git commit -m "Adiciona nova funcionalidade"</code></pre></li>
+                <li><strong>Envie a branch para o GitHub:</strong><pre><code>git push origin feature</code></pre></li>
+                <li><strong>Crie um Pull Request (PR):</strong><p>Acesse o repositório no GitHub, vá para a aba "Pull Requests" e clique em "New Pull Request".</p></li>
+                <li><strong>Revise e faça o merge:</strong><p>Após aprovação, clique em "Merge Pull Request" no GitHub.</p></li>
+                <li><strong>Atualize o repositório local:</strong><pre><code>git checkout main</code></pre><pre><code>git pull origin main</code></pre></li>
+                <li><strong>(Opcional) Delete a branch local:</strong><pre><code>git branch -d feature</code></pre></li>
             </ol>
-            <p><strong>Nota:</strong> Se houver conflitos durante o merge, o GitHub indicará. Você pode resolvê-los no GitHub ou localmente com <code>git merge</code> após puxar a branch <code>main</code>.</p>
+            <p><strong>Nota:</strong> Resolva conflitos no GitHub ou localmente, se necessário.</p>
         </article>
         <article>
             <h2>Como Enviar Atualizações Locais para a Branch Main do GitHub</h2>
             <p>Publicado em: 12 de Maio de 2025</p>
-            <p>Este guia passo a passo mostra como enviar suas alterações locais para a branch <code>main</code> de um repositório no GitHub. Certifique-se de que você já clonou o repositório e configurou o Git localmente.</p>
+            <p>Este guia passo a passo mostra como enviar suas alterações locais para a branch <code>main</code> de um repositório no GitHub.</p>
             <h3>Passo a Passo</h3>
             <ol>
                 <li><strong>Verifique o status do repositório:</strong><pre><code>git status</code></pre></li>
@@ -149,17 +192,17 @@
                 <li><strong>Puxe as atualizações remotas:</strong><pre><code>git pull origin main</code></pre></li>
                 <li><strong>Envie as alterações para o GitHub:</strong><pre><code>git push origin main</code></pre></li>
             </ol>
-            <p><strong>Nota:</strong> Se o repositório remoto estiver protegido, você pode precisar criar um pull request.</p>
+            <p><strong>Nota:</strong> Se o repositório remoto estiver protegido, crie um pull request.</p>
         </article>
         <article>
             <h2>Primeiros Passos com Git</h2>
             <p>Publicado em: 10 de Maio de 2025</p>
-            <p>Nesta aula, aprendemos os conceitos básicos do Git, como inicializar um repositório com <code>git init</code>, adicionar arquivos com <code>git add</code> e criar commits com <code>git commit</code>. É o início do controle de versão!</p>
+            <p>Nesta aula, aprendemos os conceitos básicos do Git, como inicializar um repositório com <code>git init</code>, adicionar arquivos com <code>git add</code> e criar commits com <code>git commit</code>.</p>
         </article>
         <article>
             <h2>Trabalhando com Branches</h2>
             <p>Publicado em: 8 de Maio de 2025</p>
-            <p>Exploramos como criar e gerenciar branches no Git usando <code>git branch</code> e <code>git checkout</code>. Branches são essenciais para trabalhar em diferentes funcionalidades sem afetar o código principal.</p>
+            <p>Exploramos como criar e gerenciar branches no Git usando <code>git branch</code> e <code>git checkout</code>.</p>
         </article>
     </main>
     <footer>
