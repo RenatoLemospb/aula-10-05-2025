@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog - Aula de Git</title>
+    <title>Contato - Aula de Git</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -38,15 +38,17 @@
         margin: 2em auto;
         padding: 0 1em;
       }
-      article {
+      section {
         background-color: white;
         padding: 1.5em;
-        margin-bottom: 1.5em;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
-      article h2 {
+      section h2 {
         margin-top: 0;
+      }
+      .contact-info p {
+        margin: 0.5em 0;
       }
       footer {
         background-color: #2c3e50;
@@ -61,8 +63,8 @@
   </head>
   <body>
     <header>
-      <h1>Blog da Aula de Git</h1>
-      <p>Aprendendo controle de versão com Git</p>
+      <h1>Contato - Aula de Git</h1>
+      <p>Entre em contato conosco</p>
     </header>
     <nav>
       <a href="index.html">Home</a>
@@ -70,26 +72,20 @@
       <a href="contato.html">Contato</a>
     </nav>
     <main>
-      <article>
-        <h2>Primeiros Passos com Git</h2>
-        <p>Publicado em: 10 de Maio de 2025</p>
+      <section>
+        <h2>Fale Conosco</h2>
         <p>
-          Nesta aula, aprendemos os conceitos básicos do Git, como inicializar
-          um repositório com <code>git init</code>, adicionar arquivos com
-          <code>git add</code> e criar commits com <code>git commit</code>. É o
-          início do controle de versão!
+          Se você tem dúvidas sobre o curso ou quer saber mais sobre Git, entre
+          em contato!
         </p>
-      </article>
-      <article>
-        <h2>Trabalhando com Branches</h2>
-        <p>Publicado em: 8 de Maio de 2025</p>
-        <p>
-          Exploramos como criar e gerenciar branches no Git usando
-          <code>git branch</code> e <code>git checkout</code>. Branches são
-          essenciais para trabalhar em diferentes funcionalidades sem afetar o
-          código principal.
-        </p>
-      </article>
+        <div class="contact-info">
+          <p><strong>Email:</strong> contato@aula-de-git.com</p>
+          <p><strong>Telefone:</strong> (69) 9999-9999</p>
+          <p>
+            <strong>Endereço:</strong> Rua do Código, 123, Pimenta Bueno, RO
+          </p>
+        </div>
+      </section>
     </main>
     <footer>
       <p>© 2025 - Aula de Git. Todos os direitos reservados.</p>
