@@ -50,6 +50,17 @@
       article h2 {
         margin-top: 0;
       }
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+      pre {
+        background-color: #f4f4f4;
+        padding: 1em;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
       footer {
         background-color: #2c3e50;
         color: white;
@@ -72,6 +83,69 @@
       <a href="contato.html">Contato</a>
     </nav>
     <main>
+      <article>
+        <h2>Como Enviar Atualizações Locais para a Branch Main do GitHub</h2>
+        <p>Publicado em: 12 de Maio de 2025</p>
+        <p>
+          Este guia passo a passo mostra como enviar suas alterações locais para
+          a branch <code>main</code> de um repositório no GitHub. Certifique-se
+          de que você já clonou o repositório e configurou o Git localmente.
+        </p>
+        <h3>Passo a Passo</h3>
+        <ol>
+          <li>
+            <strong>Verifique o status do repositório:</strong>
+            <p>Confira quais arquivos foram modificados ou adicionados.</p>
+            <pre><code>git status</code></pre>
+          </li>
+          <li>
+            <strong>Adicione as alterações:</strong>
+            <p>
+              Adicione os arquivos modificados ao staging para prepará-los para
+              o commit.
+            </p>
+            <pre><code>git add .</code></pre>
+            <p>
+              (Use <code>git add nome-do-arquivo</code> para adicionar arquivos
+              específicos.)
+            </p>
+          </li>
+          <li>
+            <strong>Crie um commit:</strong>
+            <p>Registre suas alterações com uma mensagem descritiva.</p>
+            <pre><code>git commit -m "Descrição das alterações"</code></pre>
+          </li>
+          <li>
+            <strong>Verifique a branch atual:</strong>
+            <p>Certifique-se de que você está na branch <code>main</code>.</p>
+            <pre><code>git branch</code></pre>
+            <p>Se necessário, mude para a branch <code>main</code> com:</p>
+            <pre><code>git checkout main</code></pre>
+          </li>
+          <li>
+            <strong>Puxe as atualizações remotas:</strong>
+            <p>
+              Antes de enviar, synchronize seu repositório local com o remoto
+              para evitar conflitos.
+            </p>
+            <pre><code>git pull origin main</code></pre>
+          </li>
+          <li>
+            <strong>Envie as alterações para o GitHub:</strong>
+            <p>
+              Envie seus commits locais para a branch <code>main</code> no
+              repositório remoto.
+            </p>
+            <pre><code>git push origin main</code></pre>
+          </li>
+        </ol>
+        <p>
+          <strong>Nota:</strong> Se o repositório remoto estiver protegido, você
+          pode precisar criar um pull request em vez de enviar diretamente para
+          a <code>main</code>. Nesse caso, considere trabalhar em uma branch
+          separada e abrir um PR no GitHub.
+        </p>
+      </article>
       <article>
         <h2>Primeiros Passos com Git</h2>
         <p>Publicado em: 10 de Maio de 2025</p>
